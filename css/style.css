@@ -341,7 +341,7 @@ h1, h2, h3 {
   display: block;
   width: 100%;
 }
-.work img { width: 100%; transition: transform 0.45s ease; }
+.work img { width: 100%; height: auto; transition: transform 0.45s ease; }
 .work:hover img, .work:focus-visible img { transform: scale(1.04); }
 .work .work-info {
   position: absolute;
