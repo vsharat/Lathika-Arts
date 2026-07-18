@@ -1,21 +1,22 @@
 # Lathika Arts — Portfolio Website
 
-A modern, mobile-first portfolio site for Lathika's hand-sculpted clay art:
-floral wall panels, sculpted vases & vessels, and free-standing clay florals.
+A modern, mobile-first portfolio site for Lathika's art: hand-sculpted clay
+florals, figurative sculpture, paintings and pencil sketches.
 
 This is a **pure portfolio site — no e-commerce**. The Shop page shows
-available pieces without prices; visitors press **Inquire** and their message
-is emailed to the address configured below.
+pieces without prices; visitors press **Inquire** and their message is
+emailed to the address configured below.
 
 ## Pages
 
 | Page | Purpose |
 |---|---|
-| `index.html` | Landing page — hero, collections, featured works, artist intro |
-| `gallery.html` | Full portfolio with category filters and a lightbox viewer |
-| `shop.html` | Available pieces with the email-inquiry flow (no prices, no checkout) |
+| `index.html` | Landing page — hero, six collections, featured works, artist intro |
+| `portfolio.html` | Sculptures, Paintings and Sketches with category filters and a lightbox |
+| `shop.html` | Arrangements, Wall Panels, and Vases & Vessels grouped by category, each piece with the email-inquiry flow (no prices, no checkout) |
 | `about.html` | Artist bio and photos |
 | `contact.html` | General contact / commission form |
+| `gallery.html` | Redirect kept for old links → `portfolio.html` |
 
 No build step or framework — plain HTML/CSS/JS. Works on GitHub Pages
 (Settings → Pages → deploy from branch, root folder) or any static host.
@@ -38,12 +39,16 @@ the visitor a direct `mailto:` link as a fallback, so no inquiry is lost.
 
 Artwork data lives in `js/works-data.js`, which is **generated** by
 [`tools/build_images.py`](tools/build_images.py) from the original photo
-folders (`Panels/`, `Vases/`, `Backgrounds/`). To make changes, edit the
-dictionaries at the top of that script and re-run it:
+folders. Shop categories come from `Arrangements/`, `Panels/` and `Vases/`;
+portfolio categories from `Sculptures/`, `Paintings/` and `Sketches/`. To
+make changes, edit the dictionaries at the top of that script and re-run it:
 
+- `CATEGORIES` — the six categories, their labels and which section
+  (shop or portfolio) each belongs to
 - `CURATED_TITLES` — give a piece a proper title (otherwise it gets a
   numbered one like "Floral Panel No. 12")
-- `SHOP_ITEMS` — which pieces appear in the Shop, with their descriptions
+- `SHOP_DESCRIPTIONS` — optional description shown on a shop card
+  (every shop piece is inquirable either way)
 - `EXCLUDE` — photos to leave out (duplicate shots, etc.)
 
 ```bash
