@@ -288,6 +288,15 @@ h1, h2, h3 {
   color: #fff;
 }
 .cat-card .cat-label h3 { color: #fff; font-size: 1.5rem; }
+.cat-card .cat-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 0.25rem;
+}
 .cat-card .cat-label p { font-size: 0.9rem; color: #e8d9ee; margin-top: 0.2rem; }
 
 /* ------------------------------ gallery ----------------------------------- */
@@ -409,6 +418,24 @@ h1, h2, h3 {
 .lb-next { right: 1rem; top: 50%; transform: translateY(-50%); }
 
 /* -------------------------------- shop ------------------------------------ */
+
+.shop-section { margin-bottom: 4rem; scroll-margin-top: 5.5rem; }
+.shop-section-head { max-width: 640px; margin-bottom: 1.6rem; }
+.shop-section-head h2 {
+  display: inline-block;
+  font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+  margin-right: 0.8rem;
+}
+.shop-count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  vertical-align: 0.35em;
+}
+.shop-section-head p { color: var(--text-soft); margin-top: 0.2rem; }
+.shop-jumps { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.4rem; }
 
 .shop-grid {
   display: grid;

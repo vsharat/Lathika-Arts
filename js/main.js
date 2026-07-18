@@ -157,21 +157,26 @@
     return el;
   }
 
-  function initGallery() {
-    var grid = document.getElementById("gallery-grid");
+  function initPortfolio() {
+    var grid = document.getElementById("portfolio-grid");
     if (!grid || !window.WORKS_DATA) return;
 
-    var works = WORKS_DATA.works;
+    var portfolioCats = Object.keys(WORKS_DATA.categories).filter(function (k) {
+      return WORKS_DATA.categories[k].section === "portfolio";
+    });
+    var works = WORKS_DATA.works.filter(function (w) {
+      return portfolioCats.indexOf(w.category) !== -1;
+    });
     var current = "all";
     var params = new URLSearchParams(location.search);
-    if (params.get("cat") && WORKS_DATA.categories[params.get("cat")]) {
+    if (portfolioCats.indexOf(params.get("cat")) !== -1) {
       current = params.get("cat");
     }
 
     var bar = document.getElementById("filter-bar");
     if (bar) {
       var cats = [["all", "All Works"]].concat(
-        Object.keys(WORKS_DATA.categories).map(function (k) {
+        portfolioCats.map(function (k) {
           return [k, WORKS_DATA.categories[k].label];
         }));
       cats.forEach(function (pair) {
@@ -209,9 +214,10 @@
   function initFeatured() {
     var grid = document.getElementById("featured-grid");
     if (!grid || !window.WORKS_DATA) return;
-    var picks = ["dscf1118", "panel1", "20210418-081307000-ios",
-                 "image003", "india0057", "clay-pots-033",
-                 "20190627-042607000-ios", "20230309-232629000-ios"];
+    var picks = ["dscf1118", "55eebeab-dee9-4865-8cda-817367889662",
+                 "dsc00095-small", "ed8ed12e-b08f-400c-87fa-e48b2cf3d47b",
+                 "panel1", "mummys-art-work-16",
+                 "20190627-042607000-ios", "c943d45c-5183-4595-8364-332214c6273d"];
     var featured = picks.map(function (slug) {
       return WORKS_DATA.works.find(function (w) { return w.slug === slug; });
     }).filter(Boolean);
@@ -223,9 +229,54 @@
   /* -------------------------------- shop ---------------------------------- */
 
   function initShop() {
-    var grid = document.getElementById("shop-grid");
-    if (!grid || !window.WORKS_DATA) return;
-    var items = WORKS_DATA.works.filter(function (w) { return w.forSale; });
+    var host = document.getElementById("shop-sections");
+    if (!host || !window.WORKS_DATA) return;
+
+    var shopCats = Object.keys(WORKS_DATA.categories).filter(function (k) {
+      return WORKS_DATA.categories[k].section === "shop";
+    });
+
+    var jumps = document.getElementById("shop-jumps");
+    if (jumps) {
+      shopCats.forEach(function (k) {
+        var a = document.createElement("a");
+        a.className = "filter-btn";
+        a.href = "#" + k;
+        a.textContent = WORKS_DATA.categories[k].label;
+        jumps.appendChild(a);
+      });
+    }
+
+    shopCats.forEach(function (k) {
+      var cat = WORKS_DATA.categories[k];
+      var items = WORKS_DATA.works.filter(function (w) {
+        return w.category === k;
+      });
+      var section = document.createElement("section");
+      section.className = "shop-section";
+      section.id = k;
+      var head = document.createElement("div");
+      head.className = "shop-section-head";
+      var h2 = document.createElement("h2");
+      h2.textContent = cat.label;
+      var count = document.createElement("span");
+      count.className = "shop-count";
+      count.textContent = items.length + " pieces";
+      var blurb = document.createElement("p");
+      blurb.textContent = cat.blurb;
+      head.appendChild(h2);
+      head.appendChild(count);
+      head.appendChild(blurb);
+      section.appendChild(head);
+      var grid = document.createElement("div");
+      grid.className = "shop-grid";
+      renderShopCards(items, grid);
+      section.appendChild(grid);
+      host.appendChild(section);
+    });
+  }
+
+  function renderShopCards(items, grid) {
     items.forEach(function (w, i) {
       var card = document.createElement("article");
       card.className = "shop-card";
@@ -406,7 +457,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     initTheme();
     initNav();
-    initGallery();
+    initPortfolio();
     initFeatured();
     initShop();
     wireForm(document.getElementById("contact-form"), function () {
