@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lathika Arts — Hand-Sculpted Clay Florals, Panels & Vessels</title>
+  <meta name="description" content="Lathika Arts: an artist portfolio of hand-sculpted clay flowers, framed floral wall panels, vases, bowls and lamps — each petal shaped by hand.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand" href="index.html">Lathika <em>Arts</em></a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('assets/site/hero.jpg')"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <span class="eyebrow">Hand-sculpted clay art</span>
+        <h1>Flowers that never fade</h1>
+        <p>Every petal, leaf and stem shaped by hand in air-dry clay —
+          floral wall panels, sculpted vases and one-of-a-kind pieces
+          by Lathika.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="gallery.html">Browse the gallery</a>
+          <a class="btn btn-ghost" href="shop.html">Available pieces</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Collections</span>
+        <h2>Explore the work</h2>
+        <p>Three bodies of work, one devotion: coaxing clay into bloom.</p>
+      </div>
+      <div class="card-grid">
+        <a class="cat-card" href="gallery.html?cat=panels">
+          <img src="assets/works/panels/thumbs/panel1.jpg" alt="Framed wall panel with a sculpted pink rose">
+          <span class="cat-label"><h3>Wall Panels</h3>
+            <p>Framed floral reliefs, each petal and leaf sculpted by hand.</p></span>
+        </a>
+        <a class="cat-card" href="gallery.html?cat=vases">
+          <img src="assets/works/vases/thumbs/20210418-080720000-ios.jpg" alt="Sculpted urn wrapped in clay roses">
+          <span class="cat-label"><h3>Vases &amp; Vessels</h3>
+            <p>Vases, bowls and lamps adorned with sculpted clay blooms.</p></span>
+        </a>
+        <a class="cat-card" href="gallery.html?cat=florals">
+          <img src="assets/works/florals/thumbs/image003.jpg" alt="Cluster of crimson clay roses">
+          <span class="cat-label"><h3>Clay Florals &amp; Sculpture</h3>
+            <p>Free-standing bouquets, blossoms and figurative sculpture.</p></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Selected works</span>
+        <h2>Featured pieces</h2>
+      </div>
+      <div class="masonry" id="featured-grid"></div>
+      <div class="center mt-2">
+        <a class="btn btn-outline" href="gallery.html">View the full gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-about">
+    <div class="container about-grid">
+      <div class="portrait">
+        <img src="assets/site/portrait.jpg" alt="Portrait of Lathika, the artist">
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow" style="color:var(--accent-2);letter-spacing:.22em;text-transform:uppercase;font-size:.8rem;font-weight:600">The artist</span>
+        <h2 style="font-size:clamp(2rem,4vw,2.8rem);margin:.4rem 0 1rem">Meet Lathika</h2>
+        <p class="lede">“I don’t paint flowers — I grow them, petal by petal,
+          out of clay.”</p>
+        <p>For years Lathika has shaped air-dry clay into roses, lotuses,
+          lilies and leaves so lifelike they seem freshly cut. Her work spans
+          framed relief panels, sculpted vessels and figurative pieces — all
+          made entirely by hand.</p>
+        <a class="btn btn-outline" href="about.html">Read her story</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Love a piece? Let’s talk.</h2>
+      <p>Original works are available to acquire, and commissions are warmly
+        welcomed. Send a note and Lathika will get back to you.</p>
+      <a class="btn btn-ghost" href="shop.html">See available pieces</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Lathika Arts. All artwork is original and handmade.</span>
+      <ul class="footer-nav">
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/works-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
